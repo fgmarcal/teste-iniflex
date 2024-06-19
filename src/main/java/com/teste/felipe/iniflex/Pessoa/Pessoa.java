@@ -19,15 +19,23 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public String getDataNascimento() {
+    private LocalDate getDataNascimento() {
+        return this.dataNascimento;
+    }
+
+    private LocalDate formatarDataNascimentoLocalDate(String dataNascimento) {
         DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("dd/mm/yyyy");
-        String dataNascimentoFormatada = dataNascimento.format(formatarData);
-        return dataNascimentoFormatada;
+        return LocalDate.parse(dataNascimento, formatarData);
     }
 
     public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = formatarDataNascimentoLocalDate(dataNascimento);
+    }
+
+    public String printDataNascimento() {
         DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("dd/mm/yyyy");
-        this.dataNascimento = LocalDate.parse(dataNascimento, formatarData);
+        String dataNascimentoFormatada = getDataNascimento().format(formatarData);
+        return dataNascimentoFormatada;
     }
     
 }

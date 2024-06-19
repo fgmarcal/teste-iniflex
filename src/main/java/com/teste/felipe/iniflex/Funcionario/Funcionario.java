@@ -17,7 +17,7 @@ public class Funcionario extends Pessoa {
         return this.salario;
     }
 
-    public void setSalario(BigDecimal salario) {
+    private void setSalario(BigDecimal salario) {
         this.salario = salario;
     }
 
@@ -30,13 +30,18 @@ public class Funcionario extends Pessoa {
     }
 
     public String printSalario(){
-        DecimalFormat formatador = new DecimalFormat("#,###.00");
+        DecimalFormat formatador = new DecimalFormat("#.###,00");
         return formatador.format(getSalario());
+    }
+
+    public void updateSalario(int aumento){
+        var novoSalario = getSalario().multiply(new BigDecimal(1 + aumento/100));
+        setSalario(novoSalario);
     }
 
     @Override
     public String toString() {
-        return "Funcionario [Nome: " + getNome() + ", Data de Nascimento: " + getDataNascimento() + ", Função: "
+        return "Funcionario [Nome: " + getNome() + ", Data de Nascimento: " + printDataNascimento() + ", Função: "
                 + getFuncao() + ", Salário: " + printSalario() + "]";
     }
 }

@@ -1,4 +1,4 @@
-package com.teste.felipe.iniflex.database;
+package com.teste.felipe.iniflex.Database;
 
 public class BaseDeFuncionarios {
     

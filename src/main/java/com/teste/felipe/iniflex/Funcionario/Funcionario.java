@@ -17,26 +17,6 @@ public class Funcionario extends Pessoa {
         this.funcao = funcao;
     }
 
-    @Override
-    public String getDataNascimento() {
-        return super.getDataNascimento();
-    }
-
-    @Override
-    public void setDataNascimento(String dataNascimento) {
-        super.setDataNascimento(dataNascimento);
-    }
-
-    @Override
-    public String getNome() {
-        return super.getNome();
-    }
-
-    @Override
-    public void setNome(String nome) {
-        super.setNome(nome);
-    }
-
     public BigDecimal getSalario() {
         return salario;
     }

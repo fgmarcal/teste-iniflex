@@ -52,4 +52,14 @@ public class Database {
         }
         return funcoes;
     }
+
+    public void imprimirPorFuncao(){
+        Map<String, List<Funcionario>> mapa = groupByFuncao();
+        for(String func : mapa.keySet()){
+            System.out.println("Função: " + func);
+            for(Funcionario f : mapa.get(func)){
+                System.out.println(f);
+            }
+        }
+    }
 }

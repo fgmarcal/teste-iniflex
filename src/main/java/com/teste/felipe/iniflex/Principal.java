@@ -38,9 +38,10 @@ public class Principal {
         System.out.println(funcionarios);
 
         //3.5 - Agrupar os funcionários por função em um MAP, sendo a chave a "função" e o valor a "lista de funcionários"
-        var funcionariosPorFuncao = database.groupByFuncao();
+        database.groupByFuncao();
         //3.6 - Imprimir os funcionarios agrupados por função;
-        System.out.println(funcionariosPorFuncao);
+        System.out.println("\n########################### Lista de Funcionários ##########################");
+        database.imprimirPorFuncao();
 
 
 

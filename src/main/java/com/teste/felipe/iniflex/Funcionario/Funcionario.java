@@ -30,7 +30,7 @@ public class Funcionario extends Pessoa {
     }
 
     public String printSalario(){
-        DecimalFormat formatador = new DecimalFormat("#.###,00");
+        DecimalFormat formatador = new DecimalFormat("#,###.00");
         return formatador.format(getSalario());
     }
 

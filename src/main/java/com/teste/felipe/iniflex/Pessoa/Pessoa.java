@@ -24,7 +24,7 @@ public abstract class Pessoa {
     }
 
     private LocalDate formatarDataNascimentoLocalDate(String dataNascimento) {
-        DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+        DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return LocalDate.parse(dataNascimento, formatarData);
     }
 
@@ -33,7 +33,7 @@ public abstract class Pessoa {
     }
 
     public String printDataNascimento() {
-        DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+        DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String dataNascimentoFormatada = getDataNascimento().format(formatarData);
         return dataNascimentoFormatada;
     }

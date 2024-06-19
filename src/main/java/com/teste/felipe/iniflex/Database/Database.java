@@ -2,7 +2,6 @@ package com.teste.felipe.iniflex.Database;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,19 +11,25 @@ import java.util.Map;
 
 import com.teste.felipe.iniflex.Funcionario.Funcionario;
 import com.teste.felipe.iniflex.Funcionario.FuncionarioBuilder;
+import com.teste.felipe.iniflex.Utils.FormatarValor;
+import com.teste.felipe.iniflex.Utils.SalarioMinimo;
 
 public class Database {
 
     private List<Funcionario> funcionarios;
+    private String[][] baseDeDados;
     
     public Database(List<Funcionario> funcionarios) {
 
         this.funcionarios = funcionarios;
+
         BaseDeFuncionarios base = new BaseDeFuncionarios();
+        this.baseDeDados = base.dadosFuncionarios;
+    }
 
-        String[][] baseDeDados = base.dadosFuncionarios;
-
-        for (String dados[] : baseDeDados) {
+    public void addFuncionariosEmLote(List<Funcionario> funcionarios){
+        this.funcionarios = funcionarios;
+        for (String dados[] : this.baseDeDados) {
             funcionarios.add(new FuncionarioBuilder()
                 .addNome(dados[0])
                 .addDataNascimento(dados[1])
@@ -117,10 +122,19 @@ public class Database {
         for (Funcionario f : funcionarios) {
             totalSalarios = totalSalarios.add(f.getSalario());
         }
-        DecimalFormat formatador = new DecimalFormat("#,###.00");
-        var resultado = formatador.format(totalSalarios);
+        var resultado = new FormatarValor().formatar(totalSalarios);
         System.out.println("Total dos salários: " + resultado);
     }
 
+
+    public void imprimirSalariosMinimos() {
+        BigDecimal salarioMinimo = SalarioMinimo.getInstance().getValor();
+        System.out.println("Quantidade de salários mínimos que cada funcionário ganha:");
+        for (Funcionario f : funcionarios) {
+            BigDecimal quantidadeSalariosMinimos = f.getSalario().divide(salarioMinimo, 2, RoundingMode.HALF_EVEN);
+            var resultado = new FormatarValor().formatar(quantidadeSalariosMinimos);
+            System.out.println(f.getNome() + ": " + resultado + " salários mínimos");
+        }
+    }
 
 }

@@ -15,10 +15,7 @@ public class Principal {
         List <Funcionario> funcionarios = new ArrayList<Funcionario>();
         Database database = new Database(funcionarios);
 
-        System.out.println("\n########################### Lista de Funcionários ##########################");
-        System.out.println(funcionarios);
-
-
+        database.addFuncionariosEmLote(funcionarios);
         //3.2 - Remover o funcionário "João" da lista;
 
         database.removerFuncionarioPorNome("João");
@@ -60,17 +57,9 @@ public class Principal {
         System.out.println("\n");
         database.imprimirTotalSalarios();
 
-
-
-
-
-
-
-
-
-
-
-
-
+        //3.12 - Imprimir quantos salários mínimos ganha cada funcionário, considerando que o salário
+        // mínimo é de R$ 1212.00;
+        System.out.println("\n");
+        database.imprimirSalariosMinimos();
     }
 }

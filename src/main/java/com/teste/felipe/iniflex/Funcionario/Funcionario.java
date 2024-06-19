@@ -1,11 +1,11 @@
 package com.teste.felipe.iniflex.Funcionario;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.Period;
 
 import com.teste.felipe.iniflex.Pessoa.Pessoa;
+import com.teste.felipe.iniflex.Utils.FormatarValor;
 
 public class Funcionario extends Pessoa {
 
@@ -32,8 +32,8 @@ public class Funcionario extends Pessoa {
     }
 
     public String printSalario(){
-        DecimalFormat formatador = new DecimalFormat("#,###.00");
-        return formatador.format(getSalario());
+        var resultado = new FormatarValor().formatar(getSalario());
+        return resultado;
     }
 
     public void updateSalario(double aumento){

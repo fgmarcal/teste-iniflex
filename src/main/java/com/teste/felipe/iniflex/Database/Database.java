@@ -7,12 +7,13 @@ import com.teste.felipe.iniflex.Funcionario.Funcionario;
 import com.teste.felipe.iniflex.Funcionario.FuncionarioBuilder;
 
 public class Database {
+
+    private List<Funcionario> funcionarios;
     
-    BaseDeFuncionarios base = new BaseDeFuncionarios(); 
+    public Database(List<Funcionario> funcionarios) {
 
-    public Database(List<Funcionario> list) {
-
-        List<Funcionario> funcionarios = list;
+        this.funcionarios = funcionarios;
+        BaseDeFuncionarios base = new BaseDeFuncionarios();
 
         String[][] baseDeDados = base.dadosFuncionarios;
 
@@ -26,12 +27,12 @@ public class Database {
         }
     }
 
-    public void removerFuncionarioPorNome(String nome, List<Funcionario> funcionarios){
-        funcionarios.removeIf(funcionario -> funcionario.getNome().equalsIgnoreCase(nome));
+    public void removerFuncionarioPorNome(String nome){
+        this.funcionarios.removeIf(funcionario -> funcionario.getNome().equalsIgnoreCase(nome));
     }
 
-    public void updateSalarios(int aumento, List<Funcionario> funcionarios){
-        funcionarios.forEach(funcionario -> {
+    public void updateSalarios(double aumento){
+        this.funcionarios.forEach(funcionario -> {
             funcionario.updateSalario(aumento);
         });
     }

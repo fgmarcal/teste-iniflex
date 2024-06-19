@@ -1,8 +1,9 @@
 package com.teste.felipe.iniflex.Database;
 
+
 public class BaseDeFuncionarios {
     
-    public static String[][] dadosFuncionarios = {
+    public String[][] dadosFuncionarios = {
         {"Maria","18/10/2000","2009.44","Operador"},
         {"João","12/05/1990","2284.38","Operador"},
         {"Caio","02/05/1961","9836.14","Coordenador"},
@@ -14,5 +15,4 @@ public class BaseDeFuncionarios {
         {"Heloísa","24/05/2003","1606.85","Eletricista"},
         {"Helena","02/09/1996","2799.93","Gerente"}
     };
-
 }

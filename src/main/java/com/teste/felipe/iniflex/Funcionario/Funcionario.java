@@ -41,7 +41,7 @@ public class Funcionario extends Pessoa {
 
     @Override
     public String toString() {
-        return "Funcionario [Nome: " + getNome() + ", Data de Nascimento: " + printDataNascimento() + ", Função: "
-                + getFuncao() + ", Salário: " + printSalario() + "]";
+        return "\n" + "Nome: " + getNome() + ", Data de Nascimento: " + printDataNascimento() + ", Função: "
+                + getFuncao() + ", Salário: " + printSalario() + "\n";
     }
 }

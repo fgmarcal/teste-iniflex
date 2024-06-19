@@ -1,7 +1,10 @@
 package com.teste.felipe.iniflex.Database;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.teste.felipe.iniflex.Funcionario.Funcionario;
 import com.teste.felipe.iniflex.Funcionario.FuncionarioBuilder;
@@ -35,5 +38,18 @@ public class Database {
         this.funcionarios.forEach(funcionario -> {
             funcionario.updateSalario(aumento);
         });
+    }
+
+    public Map<String, List<Funcionario>> groupByFuncao(){
+        Map <String, List<Funcionario>> funcoes = new HashMap<>();
+
+        for (Funcionario funcionario : this.funcionarios){
+            String funcao = funcionario.getFuncao();
+            if(!funcoes.containsKey(funcao)){
+                funcoes.put(funcao, new ArrayList<>());
+            }
+            funcoes.get(funcao).add(funcionario);
+        }
+        return funcoes;
     }
 }

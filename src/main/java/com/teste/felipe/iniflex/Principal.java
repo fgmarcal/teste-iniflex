@@ -13,7 +13,7 @@ public class Principal {
         //3.1 - Inserir todos os funcionários, na mesma ordem e informações da tabela acima
 
         List <Funcionario> funcionarios = new ArrayList<Funcionario>();
-        Database list = new Database(funcionarios);
+        Database database = new Database(funcionarios);
 
         System.out.println("\n########################### Lista de Funcionários ##########################");
         System.out.println(funcionarios);
@@ -21,7 +21,7 @@ public class Principal {
 
         //3.2 - Remover o funcionário "João" da lista;
 
-        list.removerFuncionarioPorNome("João");
+        database.removerFuncionarioPorNome("João");
         
         //3.3 - Imprimir todos os funcionários com todas suas informações, sendo que:
         /* 
@@ -32,10 +32,17 @@ public class Principal {
         System.out.println(funcionarios);
 
         //3.4 - Os funcionários receberam 10% de aumento de salário, atualizar a lista de funcionários com o novo valor;
-        list.updateSalarios(10.0);
+        database.updateSalarios(10.0);
 
         System.out.println("\n########################### Lista de Funcionários ##########################");
         System.out.println(funcionarios);
+
+        //3.5 - Agrupar os funcionários por função em um MAP, sendo a chave a "função" e o valor a "lista de funcionários"
+        var funcionariosPorFuncao = database.groupByFuncao();
+        //3.6 - Imprimir os funcionarios agrupados por função;
+        System.out.println(funcionariosPorFuncao);
+
+
 
 
 

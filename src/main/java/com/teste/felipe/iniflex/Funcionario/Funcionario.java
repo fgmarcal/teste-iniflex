@@ -17,15 +17,15 @@ public class Funcionario extends Pessoa {
         return this.salario;
     }
 
-    private void setSalario(BigDecimal salario) {
+    protected void setSalario(BigDecimal salario) {
         this.salario = salario;
     }
 
-    public String getFuncao() {
+    protected String getFuncao() {
         return this.funcao;
     }
 
-    public void setFuncao(String funcao) {
+    protected void setFuncao(String funcao) {
         this.funcao = funcao;
     }
 

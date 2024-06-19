@@ -43,6 +43,23 @@ public class Principal {
         System.out.println("\n########################### Lista de Funcionários ##########################");
         database.imprimirPorFuncao();
 
+        //3.8 - Imprimir os funcionários que fazem aniversário do mês 10 e 12;
+        System.out.println("\n");
+        System.out.println("Aniversariantes de 10 e 12");
+        database.imprimirAniversariantesMes(10, 12);
+
+        //3.9 - Imprimir o funcionário com a maior idade, exibir os atributos: nome e idade.
+        System.out.println("\n");
+        database.imprimirFuncionarioMaisVelho();
+
+        //3.10 - Imprimir a lista de funcionários por ordem alfabética
+        System.out.println("\n");
+        database.imprimirFuncionariosPorOrdemAlfabetica();
+
+        //3.11 - Imprimir o total dos salários dos funcionários
+        System.out.println("\n");
+        database.imprimirTotalSalarios();
+
 
 
 

@@ -2,6 +2,8 @@ package com.teste.felipe.iniflex.Funcionario;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.Period;
 
 import com.teste.felipe.iniflex.Pessoa.Pessoa;
 
@@ -13,7 +15,7 @@ public class Funcionario extends Pessoa {
 
     public Funcionario(){}
     
-    private BigDecimal getSalario() {
+    public BigDecimal getSalario() {
         return this.salario;
     }
 
@@ -38,6 +40,10 @@ public class Funcionario extends Pessoa {
         double salario = getSalario().doubleValue();
         var novoSalario = salario*(1 + aumento/100);
         setSalario(new BigDecimal(novoSalario));
+    }
+
+    public int getIdade(){
+        return Period.between(getDataNascimento(), LocalDate.now()).getYears();
     }
 
     @Override

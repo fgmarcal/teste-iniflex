@@ -19,7 +19,7 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    private LocalDate getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return this.dataNascimento;
     }
 

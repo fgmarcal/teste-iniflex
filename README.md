@@ -25,13 +25,13 @@ Este projeto Java foi desenvolvido para gerenciar funcionários de uma indústri
      - Identificar funcionário mais velho.
      - Imprimir lista de funcionários em ordem alfabética.
      - Calcular e imprimir o total dos salários.
-     - Calcular e imprimir quantos salários mínimos cada funcionário ganha.
+     - Calcular e imprimir quantos salários mínimos cada funcionário ganha (considerando valor pré-determinado).
 
 ## Execução do Projeto
 
 ### Tecnologias Utilizadas
 
-- Java 8+
+- Java 11+
 - Maven
 
 ### Como Executar

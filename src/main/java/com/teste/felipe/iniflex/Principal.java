@@ -23,7 +23,7 @@ public class Principal {
         //3.3 - Imprimir todos os funcionários com todas suas informações, sendo que:
         /* 
             - informação de data deve ser exibida no formato dd/mm/aaaa;
-            - informação de valor numério deve ser exibida no formatado com separador de milhar como ponto e decimal como vírgula;
+            - informação de valor numérico deve ser exibida no formatado com separador de milhar como ponto e decimal como vírgula;
         */
         System.out.println("\n########################### Lista de Funcionários ##########################");
         System.out.println(funcionarios);

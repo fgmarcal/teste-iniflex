@@ -31,7 +31,7 @@ Este projeto Java foi desenvolvido para gerenciar funcionários de uma indústri
 
 ### Tecnologias Utilizadas
 
-- Java 11+
+- Java 17+
 - Maven
 
 ### Como Executar

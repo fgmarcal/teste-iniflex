@@ -36,9 +36,9 @@ public class Funcionario extends Pessoa {
         return resultado;
     }
 
-    public void updateSalario(double aumento){
+    public void updateSalario(double aumentoPercentual){
         double salario = getSalario().doubleValue();
-        var novoSalario = salario*(1 + aumento/100);
+        var novoSalario = salario*(1 + aumentoPercentual/100);
         setSalario(new BigDecimal(novoSalario));
     }
 

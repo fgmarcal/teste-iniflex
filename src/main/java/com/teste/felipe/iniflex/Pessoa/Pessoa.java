@@ -1,8 +1,6 @@
 package com.teste.felipe.iniflex.Pessoa;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import com.teste.felipe.iniflex.Utils.FormatarData;
 
 public abstract class Pessoa {

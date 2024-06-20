@@ -32,7 +32,7 @@ public class ServicoDeImpressao {
     }
 
     public void imprimirAniversariantesMes(int... meses) {
-        var funcionarios = database.getFuncionario();
+        var funcionarios = database.getFuncionarios();
         for (Funcionario funcionario : funcionarios) {
             int mesAniversario = funcionario.getDataNascimento().getMonthValue();
             for (int mes : meses) {
@@ -45,7 +45,7 @@ public class ServicoDeImpressao {
     }
 
     public void imprimirFuncionarioMaisVelho() {
-        var funcionarios = database.getFuncionario();
+        var funcionarios = database.getFuncionarios();
         if (funcionarios.isEmpty()) {
             System.out.println("Nenhum funcionário na lista.");
             return;
@@ -64,7 +64,7 @@ public class ServicoDeImpressao {
     }
 
     public void imprimirFuncionariosPorOrdemAlfabetica() {
-        var funcionarios = database.getFuncionario();
+        var funcionarios = database.getFuncionarios();
         List<Funcionario> sortedList = new ArrayList<>(funcionarios);
         Collections.sort(sortedList, new Comparator<Funcionario>() {
             @Override
@@ -80,7 +80,7 @@ public class ServicoDeImpressao {
     }
 
     public void imprimirTotalSalarios() {
-        var funcionarios = database.getFuncionario();
+        var funcionarios = database.getFuncionarios();
         BigDecimal totalSalarios = BigDecimal.ZERO;
         for (Funcionario f : funcionarios) {
             totalSalarios = totalSalarios.add(f.getSalario());
@@ -91,7 +91,7 @@ public class ServicoDeImpressao {
 
 
     public void imprimirSalariosMinimos() {
-        var funcionarios = database.getFuncionario();
+        var funcionarios = database.getFuncionarios();
         BigDecimal salarioMinimo = SalarioMinimo.getInstance().getValor();
         System.out.println("Quantidade de salários mínimos que cada funcionário ganha:");
         for (Funcionario f : funcionarios) {

@@ -39,7 +39,7 @@ public class Repositorio {
         }
     }
 
-    public List<Funcionario> getFuncionario(){
+    public List<Funcionario> getFuncionarios(){
         return this.funcionarios;
     }
 

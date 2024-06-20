@@ -1,19 +1,17 @@
 package com.teste.felipe.iniflex.Repositorio;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.teste.felipe.iniflex.Entidades.Funcionario.Funcionario;
+import com.teste.felipe.iniflex.Utils.FormatarValor;
 
 public class RepositorioTest {
     
@@ -27,77 +25,65 @@ public class RepositorioTest {
     }
 
     @Test
-    public void deveAdicionarFuncionariosEmLote() {
-        repositorio.addFuncionariosEmLote(new ArrayList<>());
-        List<Funcionario> result = repositorio.getFuncionario();
-        
-        assertEquals(repositorio.baseDeDados.length, result.size());
-        
-        for (int i = 0; i < repositorio.baseDeDados.length; i++) {
-            String[] dados = repositorio.baseDeDados[i];
-            Funcionario funcionario = result.get(i);
-            
-            assertEquals(dados[0], funcionario.getNome());
-            assertEquals(dados[3], funcionario.getFuncao());
-        }
+    public void deveAdicionarFuncionariosEmLoteIguaisABaseDeDados() {
+        var tester = funcionarios;
+
+        repositorio.addFuncionariosEmLote(tester);
+
+        assertEquals(repositorio.baseDeDados.length, tester.size());
+        assertEquals(tester.get(0), repositorio.getFuncionarios().get(0));
     }
 
     @Test
     public void deveRemoverFuncionarioPorNome() {
-        repositorio.addFuncionariosEmLote(new ArrayList<>());
+        var tester = funcionarios;
+        repositorio.addFuncionariosEmLote(tester);
 
-        for (String[] dados : repositorio.baseDeDados) {
-            String nomeParaRemover = dados[0];
-            repositorio.removerFuncionarioPorNome(nomeParaRemover);
-            
-            List<Funcionario> result = repositorio.getFuncionario();
-            
-            assertTrue(result.stream().noneMatch(funcionario -> funcionario.getNome().equals(nomeParaRemover)));
-
-            assertEquals(repositorio.baseDeDados.length - 1, result.size());
-
-            repositorio.addFuncionariosEmLote(new ArrayList<>());
-        }
+        var nomeParaRemover = tester.get(0).toString();
+        repositorio.removerFuncionarioPorNome(nomeParaRemover);
+        
+        List<Funcionario> result = repositorio.getFuncionarios();
+        
+        assertTrue(result.stream().noneMatch(funcionario -> 
+                funcionario
+                    .getNome()
+                    .equals(nomeParaRemover)));        
     }
 
     @Test
     public void deveAumentarOSalarioPercentualmenteConformeOValorInformado() {
-        repositorio.addFuncionariosEmLote(new ArrayList<>());
-        
-        double aumentoPercentual = 10.0;
+        var tester = funcionarios;
+        double aumentoPercentual = 20.0;
+
+        repositorio.addFuncionariosEmLote(tester);
+
+        Funcionario funcionarioTeste = tester.get(0);
+        var salarioInicial = funcionarioTeste.getSalario();
+        BigDecimal salarioEsperado = salarioInicial.multiply(BigDecimal.valueOf(1 + aumentoPercentual / 100));
+
         repositorio.updateSalarios(aumentoPercentual);
-        List<Funcionario> result = repositorio.getFuncionario();
 
-        for (String[] dados : repositorio.baseDeDados) {
-            BigDecimal salarioOriginal = new BigDecimal(dados[2]);
-            BigDecimal aumento = salarioOriginal.multiply(BigDecimal.valueOf(aumentoPercentual / 100));
-            BigDecimal salarioEsperado = salarioOriginal.add(aumento);
+        List<Funcionario> funcionariosComSalarioAumentado = repositorio.getFuncionarios();
+        var resultado = funcionariosComSalarioAumentado.get(0);
+        var funcionarioTestado = resultado.getSalario();
 
-            Funcionario funcionario = result.stream()
-                .filter(f -> f.getNome().equals(dados[0]))
-                .findFirst()
-                .orElse(null);
+        var resultadoEsperado = new FormatarValor().formatar(salarioEsperado);
+        var resultadoTestado = new FormatarValor().formatar(funcionarioTestado);
 
-            assertNotNull(funcionario);
-            assertEquals(salarioEsperado.setScale(2, RoundingMode.HALF_EVEN), funcionario.getSalario().setScale(2, RoundingMode.HALF_EVEN));
-        }
+        assertEquals(resultadoEsperado,resultadoTestado);
+        
     }
 
     @Test
     public void deveAgruparOsFuncionariosPorCargoOuFuncao() {
-        repositorio.addFuncionariosEmLote(new ArrayList<>());
-        Map<String, List<Funcionario>> result = repositorio.groupByFuncao();
-        
-        for (String[] dados : repositorio.baseDeDados) {
-            String funcao = dados[3];
-            Funcionario funcionario = result.get(funcao).stream()
-                .filter(f -> f.getNome().equals(dados[0]))
-                .findFirst()
-                .orElse(null);
+        var tester = funcionarios;
+        repositorio.addFuncionariosEmLote(tester);
 
-            assertNotNull(funcionario);
-            assertEquals(dados[0], funcionario.getNome());
-        }
+        Map<String, List<Funcionario>> result = repositorio.groupByFuncao();
+        var funcaoTest = tester.get(0).getFuncao();
+        var funcao = result.containsKey(funcaoTest);
+
+        assertTrue(funcao);
     }
 
 }

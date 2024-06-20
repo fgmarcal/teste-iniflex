@@ -9,15 +9,12 @@ import org.junit.jupiter.api.Test;
 public class FormatarDataTest {
 
     private final FormatarData formatarData = new FormatarData();
-
-
     
     @Test
     void deveFormatarUmaDataLocalDateNoPadraoDDMMAAAAEmString(){
         LocalDate dataCompleta = LocalDate.of(1986, 6, 23);
         var dataString = new String("23/06/1986");
-        FormatarData dataFormatada = new FormatarData();
-        var dataLocalDate = dataFormatada.formatarDataLocalDateParaString(dataCompleta);
+        var dataLocalDate = formatarData.formatarDataLocalDateParaString(dataCompleta);
         assertEquals(dataLocalDate, dataString);
     }
 
@@ -25,9 +22,7 @@ public class FormatarDataTest {
     void deveFormatarUmaStringDeDataEmDDMMAAParaLocalDate(){
         LocalDate dataCompleta = LocalDate.of(1986, 6, 23);
         var dataString = new String("23/06/1986");
-        FormatarData dataFormatada = new FormatarData();
-
-        var formatada = dataFormatada.formatarDataStringParaLocalDate(dataString);
+        var formatada = formatarData.formatarDataStringParaLocalDate(dataString);
         assertEquals(formatada, dataCompleta);
     }
 

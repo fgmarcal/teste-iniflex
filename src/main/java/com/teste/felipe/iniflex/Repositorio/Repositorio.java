@@ -12,7 +12,7 @@ import com.teste.felipe.iniflex.Entidades.Funcionario.Funcionario;
 public class Repositorio {
 
     private List<Funcionario> funcionarios;
-    private String[][] baseDeDados;
+    String[][] baseDeDados;
     
     public Repositorio(List<Funcionario> funcionarios) {
 
@@ -47,9 +47,9 @@ public class Repositorio {
         this.funcionarios.removeIf(funcionario -> funcionario.getNome().equalsIgnoreCase(nome));
     }
 
-    public void updateSalarios(double aumento){
+    public void updateSalarios(double aumentoPercentual){
         this.funcionarios.forEach(funcionario -> {
-            funcionario.updateSalario(aumento);
+            funcionario.updateSalario(aumentoPercentual);
         });
     }
 

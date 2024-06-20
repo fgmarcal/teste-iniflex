@@ -1,10 +1,10 @@
-package com.teste.felipe.iniflex.Funcionario;
+package com.teste.felipe.iniflex.Entidades.Funcionario;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
 
-import com.teste.felipe.iniflex.Pessoa.Pessoa;
+import com.teste.felipe.iniflex.Entidades.Pessoa.Pessoa;
 import com.teste.felipe.iniflex.Utils.FormatarValor;
 
 public class Funcionario extends Pessoa {
@@ -19,7 +19,7 @@ public class Funcionario extends Pessoa {
         return this.salario;
     }
 
-    protected void setSalario(BigDecimal salario) {
+    public void setSalario(BigDecimal salario) {
         this.salario = salario;
     }
 
@@ -27,7 +27,7 @@ public class Funcionario extends Pessoa {
         return this.funcao;
     }
 
-    protected void setFuncao(String funcao) {
+    public void setFuncao(String funcao) {
         this.funcao = funcao;
     }
 

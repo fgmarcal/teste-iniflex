@@ -1,4 +1,4 @@
-package com.teste.felipe.iniflex.Database;
+package com.teste.felipe.iniflex.Repositorio;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.teste.felipe.iniflex.Funcionario.Funcionario;
-import com.teste.felipe.iniflex.Funcionario.FuncionarioBuilder;
+import com.teste.felipe.iniflex.Builders.FuncionarioBuilder;
+import com.teste.felipe.iniflex.Entidades.Funcionario.Funcionario;
 
 public class Database {
 
@@ -37,6 +37,10 @@ public class Database {
                 .addFuncao(dados[3])
                 .get());
         }
+    }
+
+    public List<Funcionario> getFuncionario(){
+        return this.funcionarios;
     }
 
     public void removerFuncionarioPorNome(String nome){

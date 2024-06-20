@@ -1,6 +1,8 @@
-package com.teste.felipe.iniflex.Funcionario;
+package com.teste.felipe.iniflex.Builders;
 
 import java.math.BigDecimal;
+
+import com.teste.felipe.iniflex.Entidades.Funcionario.Funcionario;
 
 public class FuncionarioBuilder {
     

@@ -3,9 +3,9 @@ package com.teste.felipe.iniflex;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.teste.felipe.iniflex.Database.Database;
-import com.teste.felipe.iniflex.Funcionario.Funcionario;
-import com.teste.felipe.iniflex.Funcionario.Imprimir;
+import com.teste.felipe.iniflex.Entidades.Funcionario.Funcionario;
+import com.teste.felipe.iniflex.Repositorio.Database;
+import com.teste.felipe.iniflex.Servicos.ServicoDeImpressao;
 
 public class Principal {
     public static void main(String[] args) {
@@ -39,8 +39,8 @@ public class Principal {
         System.out.println("\n########################### Lista de Funcionários agrupados ##########################");
         // database.imprimirPorFuncao();
         // System.out.println("3.6");
-        Imprimir imprimir = new Imprimir(funcionarios);
-        imprimir.imprimirPorFuncao(database);
+        ServicoDeImpressao imprimir = new ServicoDeImpressao(database);
+        imprimir.imprimirPorFuncao();
 
         //3.8 - Imprimir os funcionários que fazem aniversário do mês 10 e 12;
         System.out.println("\n");

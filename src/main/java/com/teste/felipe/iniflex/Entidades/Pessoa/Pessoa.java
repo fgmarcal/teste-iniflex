@@ -1,4 +1,4 @@
-package com.teste.felipe.iniflex.Pessoa;
+package com.teste.felipe.iniflex.Entidades.Pessoa;
 
 import java.time.LocalDate;
 import com.teste.felipe.iniflex.Utils.FormatarData;

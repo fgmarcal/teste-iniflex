@@ -1,4 +1,4 @@
-package com.teste.felipe.iniflex.Funcionario;
+package com.teste.felipe.iniflex.Servicos;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -8,19 +8,20 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-import com.teste.felipe.iniflex.Database.Database;
+import com.teste.felipe.iniflex.Entidades.Funcionario.Funcionario;
+import com.teste.felipe.iniflex.Repositorio.Database;
 import com.teste.felipe.iniflex.Utils.FormatarValor;
 import com.teste.felipe.iniflex.Utils.SalarioMinimo;
 
-public class Imprimir {
+public class ServicoDeImpressao {
 
-        private List<Funcionario> funcionarios;
+    private Database database;
 
-        public Imprimir(List<Funcionario> funcionarios){
-            this.funcionarios = funcionarios;
+    public ServicoDeImpressao(Database database){
+            this.database = database;
         }
 
-        public void imprimirPorFuncao(Database database){
+    public void imprimirPorFuncao(){
         Map<String, List<Funcionario>> mapa = database.groupByFuncao();
         for(String func : mapa.keySet()){
             System.out.println("Função: " + func);
@@ -31,6 +32,7 @@ public class Imprimir {
     }
 
     public void imprimirAniversariantesMes(int... meses) {
+        var funcionarios = database.getFuncionario();
         for (Funcionario funcionario : funcionarios) {
             int mesAniversario = funcionario.getDataNascimento().getMonthValue();
             for (int mes : meses) {
@@ -43,6 +45,7 @@ public class Imprimir {
     }
 
     public void imprimirFuncionarioMaisVelho() {
+        var funcionarios = database.getFuncionario();
         if (funcionarios.isEmpty()) {
             System.out.println("Nenhum funcionário na lista.");
             return;
@@ -61,6 +64,7 @@ public class Imprimir {
     }
 
     public void imprimirFuncionariosPorOrdemAlfabetica() {
+        var funcionarios = database.getFuncionario();
         List<Funcionario> sortedList = new ArrayList<>(funcionarios);
         Collections.sort(sortedList, new Comparator<Funcionario>() {
             @Override
@@ -76,6 +80,7 @@ public class Imprimir {
     }
 
     public void imprimirTotalSalarios() {
+        var funcionarios = database.getFuncionario();
         BigDecimal totalSalarios = BigDecimal.ZERO;
         for (Funcionario f : funcionarios) {
             totalSalarios = totalSalarios.add(f.getSalario());
@@ -86,6 +91,7 @@ public class Imprimir {
 
 
     public void imprimirSalariosMinimos() {
+        var funcionarios = database.getFuncionario();
         BigDecimal salarioMinimo = SalarioMinimo.getInstance().getValor();
         System.out.println("Quantidade de salários mínimos que cada funcionário ganha:");
         for (Funcionario f : funcionarios) {

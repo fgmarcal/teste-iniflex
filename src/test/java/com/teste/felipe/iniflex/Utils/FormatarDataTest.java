@@ -27,7 +27,7 @@ public class FormatarDataTest {
     }
 
     @Test
-    public void naoDeveFormatarDataStringParaLocalDateComFormatoInvalido() {
+    void naoDeveFormatarDataStringParaLocalDateComFormatoInvalido() {
         String dataString = "1986/06/23";
         assertThrows(java.time.format.DateTimeParseException.class, () -> {
             formatarData.formatarDataStringParaLocalDate(dataString);

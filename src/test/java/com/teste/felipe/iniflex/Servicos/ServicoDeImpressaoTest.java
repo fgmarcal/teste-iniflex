@@ -120,7 +120,7 @@ public class ServicoDeImpressaoTest {
     }
 
     @Test
-    public void testImprimirSalariosMinimos() {
+    void deveImprimirQuantosSalariosMinimosFuncionarios() {
         BigDecimal salarioMinimo = SalarioMinimo.getInstance().getValor();
         Funcionario primeiroFuncionario = repositorio.getFuncionarios().get(0);
         BigDecimal quantidadeSalariosMinimos = primeiroFuncionario.getSalario().divide(salarioMinimo, 2, RoundingMode.HALF_EVEN);

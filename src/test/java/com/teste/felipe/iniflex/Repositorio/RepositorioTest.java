@@ -19,13 +19,13 @@ public class RepositorioTest {
     private List<Funcionario> funcionarios;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         funcionarios = new ArrayList<>();
         repositorio = new Repositorio(funcionarios);
     }
 
     @Test
-    public void deveAdicionarFuncionariosEmLoteIguaisABaseDeDados() {
+    void deveAdicionarFuncionariosEmLoteIguaisABaseDeDados() {
         var tester = funcionarios;
 
         repositorio.addFuncionariosEmLote(tester);
@@ -35,7 +35,7 @@ public class RepositorioTest {
     }
 
     @Test
-    public void deveRemoverFuncionarioPorNome() {
+    void deveRemoverFuncionarioPorNome() {
         var tester = funcionarios;
         repositorio.addFuncionariosEmLote(tester);
 
@@ -51,7 +51,7 @@ public class RepositorioTest {
     }
 
     @Test
-    public void deveAumentarOSalarioPercentualmenteConformeOValorInformado() {
+    void deveAumentarOSalarioPercentualmenteConformeOValorInformado() {
         var tester = funcionarios;
         double aumentoPercentual = 20.0;
 
@@ -75,7 +75,7 @@ public class RepositorioTest {
     }
 
     @Test
-    public void deveAgruparOsFuncionariosPorCargoOuFuncao() {
+    void deveAgruparOsFuncionariosPorCargoOuFuncao() {
         var tester = funcionarios;
         repositorio.addFuncionariosEmLote(tester);
 

@@ -22,6 +22,11 @@ public class Database {
         this.baseDeDados = base.dadosFuncionarios;
     }
 
+    /**
+     * @implSpec Método de geração em lote de funcionários usando Pattern Builder
+     * @param funcionarios
+     */
+
     public void addFuncionariosEmLote(List<Funcionario> funcionarios){
         this.funcionarios = funcionarios;
         for (String dados[] : this.baseDeDados) {

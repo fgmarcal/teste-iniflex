@@ -26,13 +26,12 @@ public abstract class Pessoa {
     }
 
     public void setDataNascimento(String dataNascimento) {
-        var dataFormatada = new FormatarData().formatarDataLocalDate(dataNascimento);
+        var dataFormatada = new FormatarData().formatarDataStringParaLocalDate(dataNascimento);
         this.dataNascimento = dataFormatada;
     }
 
     public String printDataNascimento() {
-        DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String dataNascimentoFormatada = getDataNascimento().format(formatarData);
+        var dataNascimentoFormatada = new FormatarData().formatarDataLocalDateParaString(getDataNascimento());
         return dataNascimentoFormatada;
     }
     

@@ -3,6 +3,8 @@ package com.teste.felipe.iniflex.Pessoa;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import com.teste.felipe.iniflex.Utils.FormatarData;
+
 public abstract class Pessoa {
     
     private String nome;
@@ -23,13 +25,9 @@ public abstract class Pessoa {
         return this.dataNascimento;
     }
 
-    private LocalDate formatarDataNascimentoLocalDate(String dataNascimento) {
-        DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return LocalDate.parse(dataNascimento, formatarData);
-    }
-
     public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = formatarDataNascimentoLocalDate(dataNascimento);
+        var dataFormatada = new FormatarData().formatarDataLocalDate(dataNascimento);
+        this.dataNascimento = dataFormatada;
     }
 
     public String printDataNascimento() {

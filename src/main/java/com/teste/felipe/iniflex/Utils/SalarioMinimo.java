@@ -2,6 +2,10 @@ package com.teste.felipe.iniflex.Utils;
 
 import java.math.BigDecimal;
 
+/**
+ * @implNote Classe singleton criada para guardar o valor do salário mínimo como uma constante
+ */
+
 public class SalarioMinimo {
 
     private static SalarioMinimo instance;

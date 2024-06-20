@@ -37,8 +37,7 @@ public class Principal {
         database.groupByFuncao();
         //3.6 - Imprimir os funcionarios agrupados por função;
         System.out.println("\n########################### Lista de Funcionários agrupados ##########################");
-        // database.imprimirPorFuncao();
-        // System.out.println("3.6");
+
         ServicoDeImpressao imprimir = new ServicoDeImpressao(database);
         imprimir.imprimirPorFuncao();
 

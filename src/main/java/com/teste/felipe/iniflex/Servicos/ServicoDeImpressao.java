@@ -9,15 +9,15 @@ import java.util.List;
 import java.util.Map;
 
 import com.teste.felipe.iniflex.Entidades.Funcionario.Funcionario;
-import com.teste.felipe.iniflex.Repositorio.Database;
+import com.teste.felipe.iniflex.Repositorio.Repositorio;
 import com.teste.felipe.iniflex.Utils.FormatarValor;
 import com.teste.felipe.iniflex.Utils.SalarioMinimo;
 
 public class ServicoDeImpressao {
 
-    private Database database;
+    private Repositorio database;
 
-    public ServicoDeImpressao(Database database){
+    public ServicoDeImpressao(Repositorio database){
             this.database = database;
         }
 

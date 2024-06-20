@@ -9,12 +9,12 @@ import java.util.Map;
 import com.teste.felipe.iniflex.Builders.FuncionarioBuilder;
 import com.teste.felipe.iniflex.Entidades.Funcionario.Funcionario;
 
-public class Database {
+public class Repositorio {
 
     private List<Funcionario> funcionarios;
     private String[][] baseDeDados;
     
-    public Database(List<Funcionario> funcionarios) {
+    public Repositorio(List<Funcionario> funcionarios) {
 
         this.funcionarios = funcionarios;
 

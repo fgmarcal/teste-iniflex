@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.teste.felipe.iniflex.Entidades.Funcionario.Funcionario;
-import com.teste.felipe.iniflex.Repositorio.Database;
+import com.teste.felipe.iniflex.Repositorio.Repositorio;
 import com.teste.felipe.iniflex.Servicos.ServicoDeImpressao;
 
 public class Principal {
@@ -14,7 +14,7 @@ public class Principal {
         //3.1 - Inserir todos os funcionários, na mesma ordem e informações da tabela acima
 
         List <Funcionario> funcionarios = new ArrayList<Funcionario>();
-        Database database = new Database(funcionarios);
+        Repositorio database = new Repositorio(funcionarios);
 
         database.addFuncionariosEmLote(funcionarios);
         //3.2 - Remover o funcionário "João" da lista;
